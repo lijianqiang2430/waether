@@ -34,11 +34,12 @@ jobs:
 
       # ===================== 以下是新增的 Allure 配置 =====================
       # 4. 安装 Allure 命令行工具
-      - name: 安装 Allure
-        uses: simple-elf/allure-action@v2
-        with:
-          allure-version: '2.30.0'
-
+      - name: 安装 Allure CLI
+        run: |
+          curl -o allure.zip -L https://github.com/allure-framework/allure2/releases/download/2.29.0/allure-2.29.0.zip
+          unzip -q allure.zip
+          mv allure-2.29.0 /opt/allure
+          echo "/opt/allure/bin" >> $GITHUB_PATH
       # 5. 【核心】运行pytest + 生成Allure测试数据
       - name: 执行自动化测试并生成报告数据
         run: pytest -v --alluredir=./allure-results
