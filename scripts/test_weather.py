@@ -9,7 +9,7 @@ logger = GetLog.get_log()
 
 
 # 2-定义一个测试类
-class TestOrder:
+class TestWeather:
     @pytest.mark.parametrize("param", params)
     def test_case(self, param):
         try:
