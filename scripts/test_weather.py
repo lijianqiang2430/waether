@@ -1,6 +1,4 @@
 # 1-导包
-from pygments.lexers import dsls
-
 from api.weather import WeatherApi
 from common.get_log import GetLog
 import pytest
